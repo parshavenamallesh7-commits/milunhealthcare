@@ -9,7 +9,7 @@ Allow: /products/
 Allow: /
 
 # Sitemap location for better search engine indexing
-Sitemap: https://milunhealthcare.com/sitemap.xml
+Sitemap: https://milunhealthcare.in/sitemap.xml
 
 # Specific search engine directives
 User-agent: Googlebot

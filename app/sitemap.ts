@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next"
 import { getAllProducts } from "@/lib/products"
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://milunhealthcare.com"
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://milunhealthcare.in"
   const products = getAllProducts()
 
   // Product pages
