@@ -1,0 +1,10 @@
+<svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="800" rx="60" fill="#FFFDF6"/>
+  <rect x="120" y="120" width="560" height="560" rx="40" fill="white" stroke="#FFC857" stroke-width="10"/>
+  <rect x="220" y="200" width="360" height="220" rx="24" fill="#FFB74D"/>
+  <rect x="250" y="232" width="300" height="158" rx="18" fill="#FFF3D3"/>
+  <path d="M300 280H500" stroke="#8A4B00" stroke-width="14" stroke-linecap="round"/>
+  <path d="M332 320H468" stroke="#8A4B00" stroke-width="14" stroke-linecap="round"/>
+  <rect x="210" y="470" width="380" height="90" rx="18" fill="#FFE8A8"/>
+  <text x="400" y="525" text-anchor="middle" font-family="Arial, sans-serif" font-size="40" font-weight="700" fill="#8A4B00">Vitamin D3 Support</text>
+</svg>

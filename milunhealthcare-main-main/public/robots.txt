@@ -1,0 +1,24 @@
+User-agent: *
+Allow: /
+
+# Robots crawl delay to be respectful to server
+Crawl-delay: 1
+
+# Allow search engines to crawl all product pages
+Allow: /products/
+Allow: /
+
+# Sitemap location for better search engine indexing
+Sitemap: https://milunhealthcare.com/sitemap.xml
+
+# Specific search engine directives
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
