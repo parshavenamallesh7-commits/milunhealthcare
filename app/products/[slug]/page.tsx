@@ -154,15 +154,21 @@ export default function ProductDetailPage(): ReactElement {
                   <div className="relative">
                     <div className="flex justify-center">
                       <div className="relative group">
-                        <Image
-                          src={product.images[currentImageIndex].src}
-                          alt={product.images[currentImageIndex].alt}
-                          width={400}
-                          height={400}
-                          loading="lazy"
-                          className="w-full max-w-[400px] h-auto rounded-xl shadow-lg"
-                        />
-                        {product.images.length > 1 && (
+                        {product.slug === "mi-cal-k2" ? (
+                          <div className="flex aspect-square w-full max-w-[400px] items-center justify-center rounded-xl bg-slate-100 text-2xl font-bold text-slate-500 shadow-lg">
+                          Coming Soon
+                          </div>
+                        ) : (
+                          <>
+                          <Image
+                            src={product.images[currentImageIndex].src}
+                            alt={product.images[currentImageIndex].alt}
+                            width={400}
+                            height={400}
+                            loading="lazy"
+                            className="w-full max-w-[400px] h-auto rounded-xl shadow-lg"
+                          />
+                          {product.images.length > 1 && (
                           <>
                             <button
                               onClick={prevImage}
@@ -178,9 +184,11 @@ export default function ProductDetailPage(): ReactElement {
                             </button>
                           </>
                         )}
+                        </>
+                        )}
                       </div>
                     </div>
-                    {product.images.length > 1 && (
+                    {product.slug !== "mi-cal-k2" && product.images.length > 1 && (
                       <div className="flex justify-center mt-4 space-x-2">
                         {product.images.map((_, index) => (
                           <button

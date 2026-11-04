@@ -4,8 +4,9 @@
 		{
 			"label": "predeploy-build",
 			"type": "shell",
-			"command": "pnpm",
+			"command": "npm",
 			"args": [
+				"run",
 				"build"
 			],
 			"isBackground": false
@@ -13,7 +14,7 @@
 		{
 			"label": "predeploy-start",
 			"type": "shell",
-			"command": "pnpm",
+			"command": "npm",
 			"args": [
 				"start",
 				"--",

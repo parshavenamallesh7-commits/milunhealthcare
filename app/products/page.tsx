@@ -24,13 +24,13 @@ export default function ProductsPage(): ReactElement {
   const [currentImageIndex, setCurrentImageIndex] = useState({
     "mi-sum-vit": 0,
     "boon-fol": 0,
-    "mi-red-z-one": 0,
     "mi-cal-zm": 0,
     "etomil-mr": 0,
     "mi-cal-k2": 0,
     "glycy-max-d3": 0,
     "ferti-fa-q10": 0,
     "doxy-mil-od": 0,
+    "doxy-mil": 0,
     "etomil-90": 0,
   })
 
@@ -40,10 +40,6 @@ export default function ProductsPage(): ReactElement {
       { src: "/products/my-sum-vit-2.jpeg", alt: "My Sum Vit Tablets - Side View" },
     ],
     "boon-fol": [{ src: "/products/boon-fol.jpeg", alt: "Boon Fol Tablets - Front View" }],
-    "mi-red-z-one": [
-      { src: "/products/mi-red-z-one-1.jpg", alt: "Mi Red Z One Tablets - Front View" },
-      { src: "/products/mi-red-z-one-2.jpg", alt: "Mi Red Z One Tablets - With Blister Pack" },
-    ],
     "mi-cal-zm": [
       { src: "/products/mi-cal-zm.jpeg", alt: "Mi Cal ZM Tablets - Front View" },
       { src: "/products/mi-cal-zm-2.jpeg", alt: "Mi Cal ZM Tablets - Side View" },
@@ -64,9 +60,9 @@ export default function ProductsPage(): ReactElement {
     ],
     "doxy-mil-od": [
       { src: "/products/doxy-mil-od.jpeg", alt: "Doxy Mil-OD Tablets - Front View" },
-      { src: "/products/doxy-mil-od-2.jpeg", alt: "Doxy Mil-OD Tablets - Side View" },
       { src: "/products/doxy-mil-od-3.jpeg", alt: "Doxy Mil-OD Tablets - With Blister Pack" },
     ],
+    "doxy-mil": [{ src: "/products/doxy-mil.jpeg", alt: "Doxy Mil Tablets - Front View" }],
     "etomil-90": [{ src: "/products/ETOMIL-90.jpeg", alt: "Etomil-90 Tablets - Front View" }],
   }
 
@@ -112,19 +108,6 @@ export default function ProductsPage(): ReactElement {
       buttonClass: "from-[#007BFF] to-[#28A745] hover:from-[#28A745] hover:to-[#007BFF]",
       description: "Folic Acid for pregnancy support and daily wellness",
       href: "/products/boon-fol",
-    },
-    {
-      key: "mi-red-z-one" as ProductKey,
-      title: "Mi Red Z One™",
-      subtitle: "Tablets",
-      icon: Heart,
-      iconWrap: "from-red-100 to-pink-100",
-      iconClass: "text-red-500",
-      titleClass: "text-[#007BFF]",
-      subtitleClass: "text-red-500",
-      buttonClass: "from-[#28A745] to-[#007BFF] hover:from-[#007BFF] hover:to-[#28A745]",
-      description: "Ferrous Ascorbate, Folic Acid & Zinc Sulphate",
-      href: "/products/mi-red-z-one",
     },
     {
       key: "mi-cal-zm" as ProductKey,
@@ -203,6 +186,19 @@ export default function ProductsPage(): ReactElement {
       buttonClass: "from-[#E91E63] to-[#FF69B4] hover:from-[#FF69B4] hover:to-[#E91E63]",
       description: "Doxylamine Succinate, Pyridoxine Hydrochloride (Vitamin B6)",
       href: "/products/doxy-mil-od",
+    },
+    {
+      key: "doxy-mil" as ProductKey,
+      title: "Doxy Mil™",
+      subtitle: "Tablets",
+      icon: Heart,
+      iconWrap: "from-pink-100 to-red-100",
+      iconClass: "text-pink-500",
+      titleClass: "text-[#E91E63]",
+      subtitleClass: "text-gray-700",
+      buttonClass: "from-[#E91E63] to-[#FF69B4] hover:from-[#FF69B4] hover:to-[#E91E63]",
+      description: "Doxylamine Succinate, Pyridoxine Hydrochloride (Vitamin B6)",
+      href: "/products/doxy-mil",
     },
     {
       key: "etomil-90" as ProductKey,
@@ -284,15 +280,21 @@ export default function ProductsPage(): ReactElement {
                     <div className="relative my-5">
                       <div className="flex justify-center">
                         <div className="relative w-full max-w-[280px]">
-                          <Image
-                            src={currentImage.src}
-                            alt={currentImage.alt}
-                            width={280}
-                            height={280}
-                            loading="lazy"
-                            className="h-auto w-full rounded-2xl object-cover shadow-lg transition-transform duration-500 group-hover:scale-[1.02]"
-                          />
-                          {images.length > 1 && (
+                          {product.key === "mi-cal-k2" ? (
+                            <div className="flex aspect-square w-full items-center justify-center rounded-2xl bg-slate-100 text-xl font-bold text-slate-500 shadow-lg">
+                              Coming Soon
+                            </div>
+                          ) : (
+                            <>
+                              <Image
+                                src={currentImage.src}
+                                alt={currentImage.alt}
+                                width={280}
+                                height={280}
+                                loading="lazy"
+                                className="h-auto w-full rounded-2xl object-cover shadow-lg transition-transform duration-500 group-hover:scale-[1.02]"
+                              />
+                              {images.length > 1 && (
                             <>
                               <button
                                 onClick={() => prevImage(product.key)}
@@ -308,10 +310,12 @@ export default function ProductsPage(): ReactElement {
                               </button>
                             </>
                           )}
+                            </>
+                          )}
                         </div>
                       </div>
 
-                      {images.length > 1 && (
+                      {product.key !== "mi-cal-k2" && images.length > 1 && (
                         <div className="mt-3 flex justify-center gap-2">
                           {images.map((_, index) => (
                             <button
