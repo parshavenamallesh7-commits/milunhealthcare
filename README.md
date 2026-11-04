@@ -4,7 +4,7 @@ A modern, SEO-optimized pharmaceutical website built with Next.js 15, showcasing
 
 ## 🚀 Features
 
-- **9 Pharmaceutical Products** - Complete product catalog with detailed information
+- **11 Pharmaceutical Products** - Complete product catalog with detailed information
 - **Dynamic Product Pages** - Individual pages for each product with full specifications
 - **SEO Optimized** - Meta tags, OpenGraph, Twitter Cards, JSON-LD structured data
 - **Dynamic Sitemap** - Auto-generated XML sitemap for search engines
@@ -14,16 +14,17 @@ A modern, SEO-optimized pharmaceutical website built with Next.js 15, showcasing
 
 ## 📦 Products
 
-1. **Mi Sum Vit™** - Multivitamin & Antioxidant Supplement
-2. **Mi Red Z One™** - Iron, Folic Acid & Zinc Supplement
+1. **My Sum Vit™** - Multivitamin & Antioxidant Supplement
+2. **Boon Fol™** - Folic Acid Support
 3. **Mi Cal ZM™** - Calcium, Vitamin D3, Magnesium & Zinc
 4. **Mi Cal K2™** - Complete Bone Health & Calcium Supplement
-5. **Mi D Max™** - Vitamin D3 & Calcium Supplement
-6. **Mi L Gest™** - Pregnancy Support & Luteal Phase Supplement
-7. **Ferti Fa - Q10™** - Premium Fertility & Reproductive Health Support
-8. **Doxy Mil-OD™** - Pregnancy Nausea & Vomiting Relief
-9. **Etomil-90™** - Advanced COX-2 Inhibitor Pain Relief
-10. **EtoMil MR™** - Pain Relief & Muscle Relaxation
+5. **Mi L Gest™** - Pregnancy Support & Luteal Phase Supplement
+6. **Mi D Max™** - Vitamin D3 & Calcium Supplement
+7. **GLYCY MAX D3™** - Vitamin D3, Calcium & Glycine Complex
+8. **MUST Q10™** - Fertility & Reproductive Health Support
+9. **Doxy Mil-OD™** - Pregnancy Nausea & Vomiting Relief
+10. **Etomil-90™** - Advanced COX-2 Inhibitor Pain Relief
+11. **EtoMil MR™** - Pain Relief & Muscle Relaxation
 
 ## 🛠️ Tech Stack
 
@@ -32,29 +33,29 @@ A modern, SEO-optimized pharmaceutical website built with Next.js 15, showcasing
 - **Styling:** Tailwind CSS
 - **UI Components:** Radix UI + shadcn/ui
 - **Icons:** Lucide React
-- **Package Manager:** pnpm
+- **Package Manager:** npm
 
 ## 📋 Getting Started
 
 ### Prerequisites
 
 - Node.js 18+ 
-- pnpm (or npm/yarn)
+- npm
 
 ### Installation
 
 ```bash
 # Install dependencies
-pnpm install
+npm install
 
 # Run development server
-pnpm dev
+npm run dev
 
 # Build for production
-pnpm build
+npm run build
 
 # Start production server
-pnpm start
+npm start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to view the website.
@@ -75,7 +76,6 @@ milunhealthcare/
 │   └── sitemap.ts          # Dynamic XML sitemap
 ├── components/
 │   ├── ui/                 # Reusable UI components
-│   └── theme-provider.tsx  # Theme configuration
 ├── lib/
 │   ├── products.ts         # Product data source
 │   └── utils.ts            # Utility functions
@@ -83,8 +83,6 @@ milunhealthcare/
 │   ├── logo.png            # Company logo
 │   ├── robots.txt          # Search engine directives
 │   └── products/           # Product images
-└── styles/
-    └── globals.css         # Additional global styles
 ```
 
 ## 🔍 SEO Features

@@ -15,7 +15,6 @@ import {
   Mail,
   MapPin,
   Pill,
-  Heart,
   Bone,
   Award,
   Globe,
@@ -47,7 +46,6 @@ export default function MilunHealthcare(): ReactElement {
   const [currentImageIndex, setCurrentImageIndex] = useState({
     "mi-sum-vit": 0,
     "boon-fol": 0,
-    "mi-red-z-one": 0,
     "mi-cal-zm": 0,
     "etomil-mr": 0,
     "mi-cal-k2": 0,
@@ -66,10 +64,6 @@ export default function MilunHealthcare(): ReactElement {
     ],
     "boon-fol": [
       { src: "/products/boon-fol.jpeg", alt: "Boon Fol Tablets - Front View" },
-    ],
-    "mi-red-z-one": [
-      { src: "/products/mi-red-z-one-1.jpg", alt: "Mi Red Z One Tablets - Front View" },
-      { src: "/products/mi-red-z-one-2.jpg", alt: "Mi Red Z One Tablets - With Blister Pack" },
     ],
     "mi-cal-zm": [
       { src: "/products/mi-cal-zm.jpeg", alt: "Mi Cal ZM Tablets - Front View" },
@@ -93,7 +87,6 @@ export default function MilunHealthcare(): ReactElement {
     ],
     "doxy-mil-od": [
       { src: "/products/doxy-mil-od.jpeg", alt: "Doxy Mil-OD Tablets - Front View" },
-      { src: "/products/doxy-mil-od-2.jpeg", alt: "Doxy Mil-OD Tablets - Side View" },
       { src: "/products/doxy-mil-od-3.jpeg", alt: "Doxy Mil-OD Tablets - With Blister Pack" },
     ],
     "etomil-90": [
@@ -103,6 +96,8 @@ export default function MilunHealthcare(): ReactElement {
       { src: "/products/eto-mil-mr.jpeg", alt: "Eto Mil MR Tablets - Front View" },
     ],
   }
+
+  type ProductKey = keyof typeof productImages
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -138,14 +133,14 @@ export default function MilunHealthcare(): ReactElement {
     window.open(`https://wa.me/919490370472?text=${message}`, "_blank", "noopener,noreferrer")
   }
 
-  const nextImage = (productKey: string) => {
+  const nextImage = (productKey: ProductKey) => {
     setCurrentImageIndex((prev) => ({
       ...prev,
       [productKey]: (prev[productKey] + 1) % productImages[productKey].length,
     }))
   }
 
-  const prevImage = (productKey: string) => {
+  const prevImage = (productKey: ProductKey) => {
     setCurrentImageIndex((prev) => ({
       ...prev,
       [productKey]: prev[productKey] === 0 ? productImages[productKey].length - 1 : prev[productKey] - 1,
@@ -498,74 +493,6 @@ export default function MilunHealthcare(): ReactElement {
               </CardContent>
             </Card>
 
-            <Card
-              className={`bg-white rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 border-2 border-transparent hover:border-red-200 ${isVisible["products"] ? "animate-fade-in" : "opacity-0"}`}
-            >
-              <CardContent className="p-6">
-                <div className="flex justify-center mb-4">
-                  <div className="bg-gradient-to-r from-red-100 to-pink-100 p-3 rounded-full">
-                    <Heart className="text-red-500 bg-transparent" size={32} />
-                  </div>
-                </div>
-                <h3 className="text-xl font-black text-[#007BFF] mb-4 text-center">
-                  Mi<span className="text-[#ff0004]"> Red</span> Z One™ <span className="text-red-500">Tablets</span>
-                </h3>
-
-                <div className="relative mb-4">
-                  <div className="flex justify-center">
-                    <div className="relative group">
-                      <Image
-                        src={productImages["mi-red-z-one"][currentImageIndex["mi-red-z-one"]].src || "/placeholder.svg"}
-                        alt={productImages["mi-red-z-one"][currentImageIndex["mi-red-z-one"]].alt}
-                        width={300}
-                        height={300}
-                        loading="lazy"
-                        className="w-full max-w-[300px] h-auto rounded-xl shadow-lg group-hover:shadow-2xl transition-all duration-300"
-                      />
-                      {productImages["mi-red-z-one"].length > 1 && (
-                        <>
-                          <button
-                            onClick={() => prevImage("mi-red-z-one")}
-                            className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white p-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-110"
-                          >
-                            <ChevronLeft className="text-[#007BFF]" size={16} />
-                          </button>
-                          <button
-                            onClick={() => nextImage("mi-red-z-one")}
-                            className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white p-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-110"
-                          >
-                            <ChevronRight className="text-[#007BFF]" size={16} />
-                          </button>
-                        </>
-                      )}
-                    </div>
-                  </div>
-                  {productImages["mi-red-z-one"].length > 1 && (
-                    <div className="flex justify-center mt-3 space-x-2">
-                      {productImages["mi-red-z-one"].map((_, index) => (
-                        <button
-                          key={index}
-                          onClick={() => setCurrentImageIndex((prev) => ({ ...prev, "mi-red-z-one": index }))}
-                          className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                            currentImageIndex["mi-red-z-one"] === index
-                              ? "bg-red-500 scale-125"
-                              : "bg-gray-300 hover:bg-gray-400"
-                          }`}
-                        />
-                      ))}
-                    </div>
-                  )}
-                </div>
-
-                <div className="bg-gradient-to-r from-red-50 to-pink-50 p-4 rounded-xl">
-                  <p className="text-gray-700 text-center text-sm leading-relaxed">
-                    <span className="font-bold text-red-500">Ferrous Ascorbate, Folic Acid & Zinc Sulphate</span>{" "}
-                    Tablets specially formulated to{" "}
-                    <span className="font-bold text-[#007BFF]">support optimal blood health</span> and vitality.
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
           </div>
 
           <div className="mt-12 flex justify-center">
